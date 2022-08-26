@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AddressRegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginFirstName" Type="varchar" MaxLength="30" />
+          <Property Name="LoginLastName" Type="varchar" MaxLength="30" />
+          <Property Name="LoginEmail" Type="varchar" MaxLength="30" />
+          <Property Name="LoginUserName" Type="varchar" MaxLength="30" />
+          <Property Name="LoginPassword" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserIdNo" Type="varchar" MaxLength="11" />
+          <Property Name="UserFirstName" Type="varchar" MaxLength="30" />
+          <Property Name="UserLastName" Type="varchar" MaxLength="30" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="30" />
+          <Property Name="UserDateOfAdd" Type="date" />
+          <Property Name="UserAdress1" Type="varchar" MaxLength="100" />
+          <Property Name="UserAdress2" Type="varchar" MaxLength="100" />
+          <Property Name="UserCity" Type="varchar" MaxLength="50" />
+          <Property Name="UserDistrict" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="AddressRegistrationModelStoreContainer">
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AddressRegistrationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginFirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LoginLastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LoginEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LoginUserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LoginPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserIdNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="UserFirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UserLastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UserEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UserDateOfAdd" Type="DateTime" Precision="0" />
+          <Property Name="UserAdress1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserAdress2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserDistrict" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="AddressEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Logins" EntityType="Self.Login" />
+          <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AddressRegistrationModelStoreContainer" CdmEntityContainer="AddressEntities">
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="AddressRegistrationModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="LoginFirstName" ColumnName="LoginFirstName" />
+                <ScalarProperty Name="LoginLastName" ColumnName="LoginLastName" />
+                <ScalarProperty Name="LoginEmail" ColumnName="LoginEmail" />
+                <ScalarProperty Name="LoginUserName" ColumnName="LoginUserName" />
+                <ScalarProperty Name="LoginPassword" ColumnName="LoginPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="AddressRegistrationModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserIdNo" ColumnName="UserIdNo" />
+                <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+                <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserDateOfAdd" ColumnName="UserDateOfAdd" />
+                <ScalarProperty Name="UserAdress1" ColumnName="UserAdress1" />
+                <ScalarProperty Name="UserAdress2" ColumnName="UserAdress2" />
+                <ScalarProperty Name="UserCity" ColumnName="UserCity" />
+                <ScalarProperty Name="UserDistrict" ColumnName="UserDistrict" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

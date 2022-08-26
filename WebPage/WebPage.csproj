@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{73BE324F-6705-4E8B-9B40-27085DACE260}</ProjectGuid>
+    <ProjectGuid>{DF142155-74DD-486E-86B9-BB9E8EF5F725}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -91,6 +99,16 @@
     <Content Include="Bootstrap\js\bootstrap.js" />
     <Content Include="Bootstrap\js\bootstrap.min.js" />
     <Content Include="LoginForm.aspx" />
+    <Content Include="MyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MyModel.Context.cs</LastGenOutput>
+      <DependentUpon>MyModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="MyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyModel.edmx</DependentUpon>
+      <LastGenOutput>MyModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +119,9 @@
     <Compile Include="AddressForm.aspx.designer.cs">
       <DependentUpon>AddressForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.aspx.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -108,7 +129,25 @@
     <Compile Include="LoginForm.aspx.designer.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInfo.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bootstrap\css\bootstrap-grid.css.map" />
@@ -133,6 +172,13 @@
     <Content Include="Bootstrap\js\bootstrap.esm.min.js.map" />
     <Content Include="Bootstrap\js\bootstrap.js.map" />
     <Content Include="Bootstrap\js\bootstrap.min.js.map" />
+    <EntityDeploy Include="MyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="MyModel.edmx.diagram">
+      <DependentUpon>MyModel.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -140,6 +186,23 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Address.Business\Address.Business.csproj">
+      <Project>{2AC5CE0E-5105-4332-8C8B-2ADAA3FFE774}</Project>
+      <Name>Address.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Address.DataAccess\Address.DataAccess.csproj">
+      <Project>{b7dc054a-387a-44ec-8d0f-4a83360544b3}</Project>
+      <Name>Address.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Address.Entitiy\Address.Entitiy.csproj">
+      <Project>{c1a14e03-1601-4ca5-adca-6a1ec9cf826b}</Project>
+      <Name>Address.Entitiy</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -154,7 +217,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>58598</DevelopmentServerPort>
+          <DevelopmentServerPort>50205</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>https://localhost:44310/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

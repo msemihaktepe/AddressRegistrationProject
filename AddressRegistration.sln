@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Address.Entitiy", "Address.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Address.DataAccess", "Address.DataAccess\Address.DataAccess.csproj", "{B7DC054A-387A-44EC-8D0F-4A83360544B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPage", "WebPage\WebPage.csproj", "{73BE324F-6705-4E8B-9B40-27085DACE260}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPage", "WebPage\WebPage.csproj", "{DF142155-74DD-486E-86B9-BB9E8EF5F725}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{B7DC054A-387A-44EC-8D0F-4A83360544B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7DC054A-387A-44EC-8D0F-4A83360544B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7DC054A-387A-44EC-8D0F-4A83360544B3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73BE324F-6705-4E8B-9B40-27085DACE260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73BE324F-6705-4E8B-9B40-27085DACE260}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73BE324F-6705-4E8B-9B40-27085DACE260}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73BE324F-6705-4E8B-9B40-27085DACE260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF142155-74DD-486E-86B9-BB9E8EF5F725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF142155-74DD-486E-86B9-BB9E8EF5F725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF142155-74DD-486E-86B9-BB9E8EF5F725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF142155-74DD-486E-86B9-BB9E8EF5F725}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

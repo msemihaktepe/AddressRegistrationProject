@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Address.DataAccess.Concrete
+namespace Address.Business.Abstract
 {
-    public class UserInfoDal
+    public interface IUserInfoService
     {
-       
+        void Add(UserInfo userInfo);       
     }
 }

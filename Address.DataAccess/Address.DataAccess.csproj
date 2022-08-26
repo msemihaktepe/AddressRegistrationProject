@@ -51,8 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IEntityRepository.cs" />
+    <Compile Include="Abstract\IUserInfoDal.cs" />
     <Compile Include="Concrete\AddressContext.cs" />
-    <Compile Include="Concrete\UserInfoDal.cs" />
+    <Compile Include="Concrete\EfUserInfoDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
