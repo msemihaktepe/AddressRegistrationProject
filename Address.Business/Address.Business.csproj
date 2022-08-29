@@ -41,11 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IUserInfoService.cs" />
-    <Compile Include="Concrete\UserInfoManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Abstract\" />
+    <Folder Include="Concrete\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Address.DataAccess\Address.DataAccess.csproj">
       <Project>{B7DC054A-387A-44EC-8D0F-4A83360544B3}</Project>

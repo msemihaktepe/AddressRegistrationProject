@@ -1,14 +1,15 @@
 ﻿using Address.Entities.Concrate;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Address.Business.Abstract
+namespace Address.DataAccess.Concrete
 {
-    public interface IUserInfoService
+    public class UserInfoDal 
     {
-        void Add(UserInfo userInfo);       
+       
     }
 }

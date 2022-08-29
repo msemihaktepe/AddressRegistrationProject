@@ -7,18 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebPage
+namespace WepPage
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Login
+    public partial class UserInfo
     {
-        public int LoginId { get; set; }
-        public string LoginFirstName { get; set; }
-        public string LoginLastName { get; set; }
-        public string LoginEmail { get; set; }
-        public string LoginUserName { get; set; }
-        public string LoginPassword { get; set; }
+        public string UserIdNo { get; set; }
+        public string UserFirstName { get; set; }
+        public string UserLastName { get; set; }
+        public string UserEmail { get; set; }
+        public Nullable<System.DateTime> UserDateOfAdd { get; set; }
+        public string UserAdress1 { get; set; }
+        public string UserAdress2 { get; set; }
+        public string UserCity { get; set; }
+        public string UserDistrict { get; set; }
     }
 }

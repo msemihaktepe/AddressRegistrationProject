@@ -1,4 +1,4 @@
-﻿using Address.Entitiy.Abstract;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Address.Entities.Concrate
 {
-    public class UserInfo : IEntity
-    {
-        public int UserId { get; set; }
+    public class UserInfo
+    {      
         public string UserIdNo { get; set; }
         public string UserFirstName { get; set; }
         public string UserLastName { get; set; }

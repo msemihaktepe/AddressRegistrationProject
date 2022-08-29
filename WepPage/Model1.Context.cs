@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebPage
+namespace WepPage
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AddressEntities : DbContext
+    public partial class AddressRegistrationEntities : DbContext
     {
-        public AddressEntities()
-            : base("name=AddressEntities")
+        public AddressRegistrationEntities()
+            : base("name=AddressRegistrationEntities")
         {
         }
     
@@ -25,7 +25,6 @@ namespace WebPage
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Login> Logins { get; set; }
-        public virtual DbSet<UserInfo> UserInfoes { get; set; }
+        public virtual DbSet<UserInfo> UserInfo { get; set; }
     }
 }

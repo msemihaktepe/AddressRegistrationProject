@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,17 +52,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IEntityRepository.cs" />
-    <Compile Include="Abstract\IUserInfoDal.cs" />
     <Compile Include="Concrete\AddressContext.cs" />
-    <Compile Include="Concrete\EfUserInfoDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Abstract\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Address.Entitiy\Address.Entitiy.csproj">
       <Project>{C1A14E03-1601-4CA5-ADCA-6A1EC9CF826B}</Project>

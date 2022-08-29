@@ -24,6 +24,24 @@ namespace WebPage
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// btnAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdd;
+
+        /// <summary>
+        /// btnSil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSil;
+
+        /// <summary>
         /// lblFirstName control.
         /// </summary>
         /// <remarks>
@@ -168,13 +186,13 @@ namespace WebPage
         protected global::System.Web.UI.WebControls.TextBox txtDistrict;
 
         /// <summary>
-        /// btnAdd control.
+        /// BtnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.Button BtnUpdate;
 
         /// <summary>
         /// grdInfo control.
