@@ -42,6 +42,24 @@ namespace WebPage
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
 
         /// <summary>
+        /// FirstNameValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator FirstNameValid;
+
+        /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+
+        /// <summary>
         /// lblLastName control.
         /// </summary>
         /// <remarks>
@@ -58,6 +76,15 @@ namespace WebPage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
+
+        /// <summary>
+        /// LastNameValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator LastNameValid;
 
         /// <summary>
         /// lblIdNo control.
@@ -78,6 +105,15 @@ namespace WebPage
         protected global::System.Web.UI.WebControls.TextBox txtIdNo;
 
         /// <summary>
+        /// IdValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator IdValid;
+
+        /// <summary>
         /// lblEmail control.
         /// </summary>
         /// <remarks>
@@ -94,6 +130,24 @@ namespace WebPage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
+
+        /// <summary>
+        /// EmailValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailValid;
+
+        /// <summary>
+        /// RegularMailValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularMailValid;
 
         /// <summary>
         /// lblAddress1 control.
@@ -114,6 +168,15 @@ namespace WebPage
         protected global::System.Web.UI.WebControls.TextBox txtAddress1;
 
         /// <summary>
+        /// Address1Valid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Address1Valid;
+
+        /// <summary>
         /// lblAddress2 control.
         /// </summary>
         /// <remarks>
@@ -130,6 +193,15 @@ namespace WebPage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddress2;
+
+        /// <summary>
+        /// Address2Valid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Address2Valid;
 
         /// <summary>
         /// lblCity control.
@@ -150,6 +222,15 @@ namespace WebPage
         protected global::System.Web.UI.WebControls.TextBox txtCity;
 
         /// <summary>
+        /// CitValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CitValid;
+
+        /// <summary>
         /// lblDistrict control.
         /// </summary>
         /// <remarks>
@@ -166,6 +247,15 @@ namespace WebPage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDistrict;
+
+        /// <summary>
+        /// DistrictValid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DistrictValid;
 
         /// <summary>
         /// btnSil control.
