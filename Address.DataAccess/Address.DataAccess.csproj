@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\AddressContexDal.cs" />
     <Compile Include="Concrete\AddressContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

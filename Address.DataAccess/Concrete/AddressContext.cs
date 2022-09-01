@@ -1,16 +1,17 @@
 ﻿using Address.Entities.Concrate;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Address.DataAccess.Concrete
 {
-    public class AddressContext:DbContext
+    public class AddressContext : DbContext
     {
-        public DbSet<UserInfo> UserInfo { get; set; }
-        public DbSet<Login> Login { get; set; }
+        public DbSet<UserInfo> UserInfoes { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<AddressContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
 }

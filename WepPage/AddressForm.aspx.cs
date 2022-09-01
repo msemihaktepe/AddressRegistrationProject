@@ -5,47 +5,35 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using WepPage;
+using Address.Business;
+using Address.Business.Concrete;
+using Address.Entities.Concrate;
 
 namespace WebPage
 {
     public partial class AddressForm : System.Web.UI.Page
     {
-        // private AddressEntities ae = new AddressEntities();
-        AddressRegistrationEntities Connection = new AddressRegistrationEntities();
+        UserInfoManager userInfoManager = new UserInfoManager();
+        AddressContext addressContext = new AddressContext();
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            FillData();
+            if (!IsPostBack)
+                ListGridView();
+
         }
 
-        private void FillData()
+        private void ListGridView()
         {
-            this.grdInfo.DataSource = Connection.UserInfo.Select
-                (p => new
-                {
-
-                    _UserIdNo = p.UserIdNo,
-                    _UserFirstName = p.UserFirstName,
-                    _UserLastName = p.UserLastName,
-                    _UserEmail = p.UserEmail,
-                    _UserDateofAdd = p.UserDateOfAdd,
-                    _UserAddress1 = p.UserAdress1,
-                    _UserAddress2 = p.UserAdress2,
-                    _UserCity = p.UserCity,
-                    _UserDistrict = p.UserDistrict
-                }).ToList();
-            this.grdInfo.DataBind();
+            var listUser = userInfoManager.GetUserData();
+            grdInfo.DataSource = listUser;
+            grdInfo.DataBind();
         }
-
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-
-
-
-            UserInfo UserAdd = new UserInfo()
+            userInfoManager.AddData(new UserInfo
             {
                 UserFirstName = txtFirstName.Text,
                 UserLastName = txtLastName.Text,
@@ -56,51 +44,44 @@ namespace WebPage
                 UserAdress2 = txtAddress2.Text,
                 UserCity = txtCity.Text,
                 UserDistrict = txtDistrict.Text
-            };
-
-
-            try
-            {
-                Connection.UserInfo.Add(UserAdd);
-                Connection.SaveChanges();
-                FillData();
-                Response.Write("Kayıt Başarılı.");
-            }
-            catch (Exception)
-            {
-
-                Response.Write("Kayıt Başarısız.");
-            }
-
-
+            });
+            ListGridView();
+            Response.Write("Kayıt Başarılı.");
+            Clean();
         }
 
         protected void BtnUpdate_Click(object sender, EventArgs e)
         {
 
-
+            userInfoManager.UpdateUsers(new UserInfo
+            {
+                UserFirstName = txtFirstName.Text,
+                UserLastName = txtLastName.Text,
+                UserEmail = txtEmail.Text,
+                UserIdNo = txtIdNo.Text,
+                UserAdress1 = txtAddress1.Text,
+                UserDateOfAdd = DateTime.Now,
+                UserAdress2 = txtAddress2.Text,
+                UserCity = txtCity.Text,
+                UserDistrict = txtDistrict.Text
+            });
+            ListGridView();
+            Clean();
         }
 
         protected void btnSil_Click(object sender, EventArgs e)
         {
-
-            var query = (from Check in Connection.UserInfo
-                         where Check.UserIdNo == txtIdNo.Text
-                         select Check).ToList();
-            if (query.Count == 1)
+            if (!string.IsNullOrEmpty(txtIdNo.Text))
             {
-                Connection.UserInfo.Remove(query[0]);
-                Connection.SaveChanges();
-                FillData();
-                Response.Write("Silindi");
+                userInfoManager.DeleteUsers(txtIdNo.Text);
+                ListGridView();
+                Clean();
             }
-            else
-            {
-                Response.Write("Silinemedi");
-            }
-            clean();
 
         }
+
+
+
 
         protected void grdInfo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -113,17 +94,16 @@ namespace WebPage
             txtCity.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[7].Text);
             txtDistrict.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[8].Text);
         }
-
-        private void clean()
+        private void Clean()
         {
-            txtFirstName.Text = "";
-            txtLastName.Text = "";
-            txtEmail.Text = "";
-            txtIdNo.Text = "";
-            txtAddress1.Text = "";
-            txtAddress2.Text = "";
-            txtCity.Text = "";
-            txtDistrict.Text = "";
+            txtFirstName.Text = string.Empty;
+            txtLastName.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtIdNo.Text = string.Empty;
+            txtAddress1.Text = string.Empty;
+            txtAddress2.Text = string.Empty;
+            txtCity.Text = string.Empty;
+            txtDistrict.Text = string.Empty;
         }
 
 
