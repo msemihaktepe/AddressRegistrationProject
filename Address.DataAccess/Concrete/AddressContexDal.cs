@@ -1,4 +1,5 @@
 ﻿using Address.Entities.Concrate;
+using Address.Entitiy.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -17,6 +18,17 @@ namespace Address.DataAccess.Concrete
         {
             return context.UserInfoes.ToList();
         }
+
+        public List<iller> ddlCityBind()
+        {
+            return context.illers.ToList();
+        }
+
+        public List<ilceler> ddlDistrictBind()
+        {
+            return context.ilcelers.ToList();
+        }
+
 
         public void AddData(UserInfo userInfo)
         {

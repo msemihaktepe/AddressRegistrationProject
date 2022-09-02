@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Address.DataAccess;
 using Address.DataAccess.Concrete;
 using Address.Entities.Concrate;
+using Address.Entitiy.Concrete;
 
 namespace Address.Business.Concrete
 {
@@ -16,6 +17,18 @@ namespace Address.Business.Concrete
         {
             var listUserInfo = addressContexDal.GetData();
             return listUserInfo;
+        }        
+
+        public List<iller> GetCities()
+        {
+            var listCitiesData = addressContexDal.ddlCityBind();
+            return listCitiesData;
+        }
+
+        public List<ilceler> GetDistrict()
+        {
+            var listDistrictData = addressContexDal.ddlDistrictBind();
+            return listDistrictData;
         }
 
         public void AddData(UserInfo userInfo)

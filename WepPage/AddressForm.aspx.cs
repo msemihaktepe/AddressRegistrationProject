@@ -20,7 +20,40 @@ namespace WebPage
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-                ListGridView();            
+            {
+                ListGridView();
+                DdlCitiesGetData();
+                DdlDistrictGetData();
+                ddlSelectedView();
+            }
+
+        }
+
+
+
+        public void DdlDistrictGetData()
+        {
+            var listDistrict = userInfoManager.GetDistrict();
+            ddlDistrict.DataSource = listDistrict;
+            ddlDistrict.DataBind();
+
+        }
+
+        public void DdlCitiesGetData()
+        {
+            var listCity = userInfoManager.GetCities();
+            ddlCity.DataSource = listCity;
+            ddlCity.DataBind();
+
+        }
+
+        public void ddlSelectedView()
+        {
+            ListItem liCity = new ListItem("İl Seçiniz", "-1");
+            ddlCity.Items.Insert(0, liCity);
+
+            ListItem liDistrict = new ListItem("İlçe Seçiniz", "-1");
+            ddlDistrict.Items.Insert(0, liDistrict);
 
         }
 
@@ -42,8 +75,8 @@ namespace WebPage
                 UserAdress1 = txtAddress1.Text,
                 UserDateOfAdd = DateTime.Now,
                 UserAdress2 = txtAddress2.Text,
-                UserCity = txtCity.Text,
-                UserDistrict = txtDistrict.Text
+                UserCity = ddlCity.Text,
+                UserDistrict = ddlDistrict.Text
             });
             ListGridView();
             Response.Write("Kayıt Başarılı.");
@@ -62,8 +95,8 @@ namespace WebPage
                 UserAdress1 = txtAddress1.Text,
                 UserDateOfAdd = DateTime.Now,
                 UserAdress2 = txtAddress2.Text,
-                UserCity = txtCity.Text,
-                UserDistrict = txtDistrict.Text
+                UserCity = ddlCity.Text,
+                UserDistrict = ddlDistrict.Text
             });
             ListGridView();
             Clean();
@@ -80,9 +113,6 @@ namespace WebPage
 
         }
 
-
-
-
         protected void grdInfo_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtFirstName.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[1].Text);
@@ -91,9 +121,10 @@ namespace WebPage
             txtIdNo.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[0].Text);
             txtAddress1.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[5].Text);
             txtAddress2.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[6].Text);
-            txtCity.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[7].Text);
-            txtDistrict.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[8].Text);
+            ddlCity.SelectedValue = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[7].Text);
+            ddlDistrict.SelectedValue = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[8].Text);
         }
+
         private void Clean()
         {
             txtFirstName.Text = string.Empty;
@@ -102,10 +133,17 @@ namespace WebPage
             txtIdNo.Text = string.Empty;
             txtAddress1.Text = string.Empty;
             txtAddress2.Text = string.Empty;
-            txtCity.Text = string.Empty;
-            txtDistrict.Text = string.Empty;
+            ddlCity.SelectedIndex = -1;
+            ddlDistrict.SelectedIndex = -1;
         }
 
+        protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
 
+            var stateId = from st in addressContext.illers where st.Equals(idState)
+                          select new { st.il_no, st.isim };
+            var statname = stateId.ToList();
+        }
     }
 }
