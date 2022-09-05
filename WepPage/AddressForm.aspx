@@ -87,7 +87,7 @@
                 <tr>
                     <td>
                         <%--<asp:TextBox CssClass="form-control form-control-lg" ID="txtCity" runat="server" Width="250px" placeholder="Ýl"></asp:TextBox>--%>
-                        <asp:DropDownList CssClass="form-control form-control-lg" ID="ddlCity" runat="server" DataTextField="isim" DataValueField="il_no" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="true">                            
+                        <asp:DropDownList CssClass="form-control form-control-lg" ID="ddlCity" runat="server" DataTextField="isim" DataValueField="isim" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="true">                            
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="CitValid" runat="server" ErrorMessage="Ýl Seçiniz" ForeColor="Red" ControlToValidate="ddlCity" Display="Dynamic">*</asp:RequiredFieldValidator>
                     </td>

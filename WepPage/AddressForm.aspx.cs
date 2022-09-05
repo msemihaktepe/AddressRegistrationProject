@@ -23,29 +23,26 @@ namespace WebPage
             {
                 ListGridView();
                 DdlCitiesGetData();
-                DdlDistrictGetData();
                 ddlSelectedView();
             }
 
         }
 
-
+        public void DdlCitiesGetData()
+        {
+            ddlCity.DataSource = userInfoManager.GetCities();
+            ddlCity.DataBind();
+            ddlDistrict.Enabled = false;
+        }
 
         public void DdlDistrictGetData()
         {
-            var listDistrict = userInfoManager.GetDistrict();
-            ddlDistrict.DataSource = listDistrict;
+            ddlDistrict.DataSource = userInfoManager.GetDistrict().Where(x => x.il_no == ddlCity.SelectedIndex);
             ddlDistrict.DataBind();
 
         }
 
-        public void DdlCitiesGetData()
-        {
-            var listCity = userInfoManager.GetCities();
-            ddlCity.DataSource = listCity;
-            ddlCity.DataBind();
 
-        }
 
         public void ddlSelectedView()
         {
@@ -59,27 +56,33 @@ namespace WebPage
 
         private void ListGridView()
         {
-            var listUser = userInfoManager.GetUserData();
-            grdInfo.DataSource = listUser;
+            grdInfo.DataSource = userInfoManager.GetUserData();
             grdInfo.DataBind();
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            userInfoManager.AddData(new UserInfo
+            if (ddlCity.SelectedIndex != 0 && ddlDistrict.SelectedIndex != 0)
             {
-                UserFirstName = txtFirstName.Text,
-                UserLastName = txtLastName.Text,
-                UserEmail = txtEmail.Text,
-                UserIdNo = txtIdNo.Text,
-                UserAdress1 = txtAddress1.Text,
-                UserDateOfAdd = DateTime.Now,
-                UserAdress2 = txtAddress2.Text,
-                UserCity = ddlCity.Text,
-                UserDistrict = ddlDistrict.Text
-            });
+                userInfoManager.AddData(new UserInfo
+                {
+                    UserFirstName = txtFirstName.Text,
+                    UserLastName = txtLastName.Text,
+                    UserEmail = txtEmail.Text,
+                    UserIdNo = txtIdNo.Text,
+                    UserAdress1 = txtAddress1.Text,
+                    UserDateOfAdd = DateTime.Now,
+                    UserAdress2 = txtAddress2.Text,
+                    UserCity = ddlCity.Text,
+                    UserDistrict = ddlDistrict.Text
+                });
+            }
+            else
+            {
+                Response.Write("İl- İlçe Seç");
+            }
+
             ListGridView();
-            Response.Write("Kayıt Başarılı.");
             Clean();
         }
 
@@ -108,8 +111,8 @@ namespace WebPage
             {
                 userInfoManager.DeleteUsers(txtIdNo.Text);
                 ListGridView();
-                Clean();
             }
+            Clean();
 
         }
 
@@ -122,7 +125,6 @@ namespace WebPage
             txtAddress1.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[5].Text);
             txtAddress2.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[6].Text);
             ddlCity.SelectedValue = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[7].Text);
-            ddlDistrict.SelectedValue = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[8].Text);
         }
 
         private void Clean()
@@ -133,17 +135,33 @@ namespace WebPage
             txtIdNo.Text = string.Empty;
             txtAddress1.Text = string.Empty;
             txtAddress2.Text = string.Empty;
-            ddlCity.SelectedIndex = -1;
-            ddlDistrict.SelectedIndex = -1;
+            ddlCity.SelectedIndex = 0;
+            if (ddlCity.SelectedIndex == 0)
+            {
+                ListItem liDistrict = new ListItem("İlçe Seçiniz", "-1");
+                ddlDistrict.Items.Insert(0, liDistrict);
+
+                ddlDistrict.SelectedIndex = 0;
+                ddlDistrict.Enabled = false;
+            }
         }
 
         protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (ddlCity.SelectedIndex == 0)
+            {
+                ListItem liDistrict = new ListItem("İlçe Seçiniz", "-1");
+                ddlDistrict.Items.Insert(0, liDistrict);
 
-            var stateId = from st in addressContext.illers where st.Equals(idState)
-                          select new { st.il_no, st.isim };
-            var statname = stateId.ToList();
+                ddlDistrict.SelectedIndex = 0;
+                ddlDistrict.Enabled = false;
+            }
+            else
+            {
+                ddlDistrict.Enabled = true;
+                DdlDistrictGetData();
+
+            }
         }
     }
 }
