@@ -107,12 +107,21 @@ namespace WebPage
 
         protected void btnSil_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtIdNo.Text))
+            try
             {
-                userInfoManager.DeleteUsers(txtIdNo.Text);
-                ListGridView();
+                if (!string.IsNullOrEmpty(txtIdNo.Text))
+                {
+                    userInfoManager.DeleteUsers(txtIdNo.Text);
+                    ListGridView();
+                }
+                Clean();
             }
-            Clean();
+            catch (ArgumentNullException)
+            {
+                Response.Write("Kayıt Bulunamadı");
+                Clean();
+            }
+           
 
         }
 
