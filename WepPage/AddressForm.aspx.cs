@@ -76,14 +76,15 @@ namespace WebPage
                     UserCity = ddlCity.Text,
                     UserDistrict = ddlDistrict.Text
                 });
+                Clean();
             }
             else
             {
                 Response.Write("İl- İlçe Seç");
+                
             }
-
             ListGridView();
-            Clean();
+            
         }
 
         protected void BtnUpdate_Click(object sender, EventArgs e)
@@ -127,13 +128,24 @@ namespace WebPage
 
         protected void grdInfo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#exampleModal').modal();", true);
+            ddlDistrict.Enabled = true;          
+
             txtFirstName.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[1].Text);
             txtLastName.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[2].Text);
             txtEmail.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[3].Text);
             txtIdNo.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[0].Text);
             txtAddress1.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[5].Text);
             txtAddress2.Text = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[6].Text);
-            ddlCity.SelectedValue = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[7].Text);
+            ddlCity.SelectedValue = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[7].Text);     
+            
+            if (ddlDistrict.Enabled)
+            {
+                DdlDistrictGetData();
+                ddlDistrict.SelectedValue = HttpUtility.HtmlDecode(grdInfo.SelectedRow.Cells[8].Text);
+            }
+            
+            
         }
 
         private void Clean()
@@ -171,6 +183,8 @@ namespace WebPage
                 DdlDistrictGetData();
 
             }
+            
         }
+       
     }
 }
