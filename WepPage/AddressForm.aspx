@@ -36,13 +36,15 @@
                     <td class="auto-style2">
 
                         <asp:TextBox CssClass="form-control form-control-lg" ID="txtFirstName" runat="server" Width="249px" placeholder="Adýnýz" Height="20px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="FirstNameValid" runat="server" ErrorMessage="Ýsim Giriniz!" ForeColor="Red" ControlToValidate="txtFirstName" Display="Dynamic">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="FirstNameValid" runat="server" ErrorMessage="Ýsim Giriniz!"
+                            ForeColor="Red" ControlToValidate="txtFirstName" Display="Dynamic">*</asp:RequiredFieldValidator>
                     </td>
                     <%-- LastName --%>
                     <td class="auto-style2">
 
                         <asp:TextBox CssClass="form-control form-control-lg" ID="txtLastName" runat="server" Width="250px" placeholder="Soyadýnýz" Height="20px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="LastNameValid" runat="server" ErrorMessage="Soyisim Giriniz!" ForeColor="Red" ControlToValidate="txtLastName" Display="Dynamic">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="LastNameValid" runat="server" ErrorMessage="Soyisim Giriniz!"
+                            ForeColor="Red" ControlToValidate="txtLastName" Display="Dynamic">*</asp:RequiredFieldValidator>
 
                     </td>
 
@@ -52,7 +54,8 @@
                 <tr>
                     <td colspan="2">
                         <asp:TextBox CssClass="form-control form-control-lg" ID="txtIdNo" runat="server" Width="500px" placeholder="T.C. No"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="IdValid" runat="server" ErrorMessage="TC No Giriniz!" ForeColor="Red" ControlToValidate="txtIdNo" Display="Dynamic">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="IdValid" runat="server" ErrorMessage="TC No Giriniz!" 
+                            ForeColor="Red" ControlToValidate="txtIdNo" Display="Dynamic">*</asp:RequiredFieldValidator>
                     </td>
 
 
@@ -63,7 +66,8 @@
                     <td colspan="2">
                         <asp:TextBox CssClass="form-control form-control-lg" ID="txtEmail" runat="server" Width="500px" placeholder="E-Mail"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="EmailValid" runat="server" ErrorMessage="E-mail Giriniz!" ForeColor="Red" ControlToValidate="txtEmail" Display="Dynamic">*</asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularMailValid" runat="server" ErrorMessage="E-Mail Yazýmý Doðru Deðil" ForeColor="Red" ControlToValidate="txtEmail" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="RegularMailValid" runat="server" ErrorMessage="E-Mail Yazýmý Doðru Deðil"
+                            ForeColor="Red" ControlToValidate="txtEmail" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
                     </td>
 
 
@@ -73,48 +77,36 @@
                 <tr>
                     <td>
                         <asp:TextBox CssClass="form-control form-control-lg" ID="txtAddress1" runat="server" Width="250px" TextMode="MultiLine" placeholder="Adres 1" Height="40px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="Address1Valid" runat="server" ErrorMessage="Adres 1 - Mahalle Giriniz!" ForeColor="Red" ControlToValidate="txtAddress1" Display="Dynamic">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="Address1Valid" runat="server" ErrorMessage="Adres 1 - Mahalle Giriniz!" 
+                            ForeColor="Red" ControlToValidate="txtAddress1" Display="Dynamic">*</asp:RequiredFieldValidator>
                     </td>
                     <td>
                         <asp:TextBox CssClass="form-control form-control-lg" ID="txtAddress2" runat="server" Width="250px" TextMode="MultiLine" placeholder="Adres 2" Height="40px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="Address2Valid" runat="server" ErrorMessage="Adres 2 - Sokak ve Daire No Giriniz!" ForeColor="Red" ControlToValidate="txtAddress2" Display="Dynamic">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="Address2Valid" runat="server" ErrorMessage="Adres 2 - Sokak ve Daire No Giriniz!"
+                            ForeColor="Red" ControlToValidate="txtAddress2" Display="Dynamic">*</asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
-
-
-                <%-- Email --%>
+                
                 <tr>
                     <td>
                         <%--<asp:TextBox CssClass="form-control form-control-lg" ID="txtCity" runat="server" Width="250px" placeholder="Ýl"></asp:TextBox>--%>
-                        <asp:DropDownList CssClass="form-control form-control-lg" ID="ddlCity" runat="server" DataTextField="isim" DataValueField="isim" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="true">                            
+                        <asp:DropDownList CssClass="form-control form-control-lg" ID="ddlCity" runat="server" DataTextField="isim" 
+                            DataValueField="isim" OnSelectedIndexChanged="ddlCity_SelectedIndexChanged" AutoPostBack="true">                            
                         </asp:DropDownList>
-                        <asp:RequiredFieldValidator ID="CitValid" runat="server" ErrorMessage="Ýl Seçiniz" ForeColor="Red" ControlToValidate="ddlCity" Display="Dynamic">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="CitValid" runat="server" ErrorMessage="Ýl Seçiniz" ForeColor="Red" 
+                            ControlToValidate="ddlCity" Display="Dynamic">*</asp:RequiredFieldValidator>
                     </td>
                     <td>
                         <%--<asp:TextBox CssClass="form-control form-control-lg" ID="txtDistrict" runat="server" Width="250px" placeholder="Ýlçe"></asp:TextBox>--%>
                           <asp:DropDownList CssClass="form-control form-control-lg" ID="ddlDistrict" runat="server" DataTextField="isim" DataValueField="isim"></asp:DropDownList>
-                        <asp:RequiredFieldValidator ID="DistrictValid" runat="server" ErrorMessage="Ýlçe Giriniz!" ForeColor="Red" ControlToValidate="ddlDistrict" Display="Dynamic">*</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="DistrictValid" runat="server" ErrorMessage="Ýlçe Giriniz!" ForeColor="Red" 
+                            ControlToValidate="ddlDistrict" Display="Dynamic">*</asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
 
                 <%-- City --%>
-
-                <tr>
-                    <td>
-
-                        
-
-                    </td>
-                    <td>
-
-                      
-
-
-
-                    </td>
-                </tr>
 
 
                 <tr>
@@ -152,7 +144,8 @@
 
                 <tr>
                     <td>
-                        <asp:GridView ID="grdInfo" runat="server" CssClass="table  table-sm table-bordered table-condensed table-responsive-sm table-hover table-striped" AutoGenerateColumns="False" Width="386px" OnSelectedIndexChanged="grdInfo_SelectedIndexChanged">
+                        <asp:GridView ID="grdInfo" runat="server" CssClass="table  table-sm table-bordered table-condensed table-responsive-sm table-hover table-striped"
+                            AutoGenerateColumns="False" Width="386px" OnSelectedIndexChanged="grdInfo_SelectedIndexChanged">
                             <Columns>
                                 <asp:BoundField DataField="UserIdNo" HeaderText="T.C. No" />
                                 <asp:BoundField DataField="UserFirstName" HeaderText="Ýsim" />
